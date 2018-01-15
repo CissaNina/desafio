@@ -14,17 +14,17 @@
       <div class="rodape">
         <h3 class="rodape-comentario">Comentários</h3>
           <hr align="center">
-          <div v-for="dialogo in usuario.dialogo">
+          <div v-for="dialogo in usuario.conversa">
             <p>{{dialogo}}</p>
           </div>
-          <label>
-          <span>Digite um comentario:</span>
-          </label>
 
         <ul>
           <li>
             <img src="../assets/profile.svg"></li>
-            <input class="caixa" v-on:model="dialogo" v-on:keyup.enter="adcdialogo">
+            <label>
+              
+              <input placeholder="Digite um comentario:" type="text" name="author" maxlength="50" required="">
+            </label>
             <button v-on:click>{{Envio}}</button>
           <li>
             <img src="../assets/profile2.svg">
@@ -61,16 +61,16 @@
         Envio: 'Enviar',
         usuario:'',
         user:{
-          dialogo:[''],
+          conversa:[''],
         
         }  
       }
         
     },
     methodos:{
-      adcdialogo(usuario){
-        return this.user.dialogo.push(this.usuario),
-                this.usuario=''
+      adcdialogo(Envio){
+        return this.user.conversa.push(this.usuario),
+                this.Envio=''
       }
     }
       
@@ -133,6 +133,10 @@
         text-align: justify;
 
   }
+
+  .rodape{
+    min-height: 70vh;
+  }
  
 
   .rodape-comentario{
@@ -164,6 +168,8 @@
     height: 64px;
     margin-left: -55px;
     padding-bottom: 30px;
+    min-width: 100px;
+ +    min-height: 20%;
   }
 
   .coment{ 
@@ -175,11 +181,12 @@
           margin: 2px;
        }
 
-  .caixa{
-    width: 50%;
-    height: 20px;
-    
-  }
+  input{padding: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 90%;
+    background: #f9f9f9;
+    font-size: 15px;}
 
   .nomes{
           font-weight: bold;
@@ -188,6 +195,37 @@
 }
 
   
+label{ 
+font-weight: 700;
+    margin-right: 18%;
+    display: inline-block;
+    font-size:0.76em }
 
 
+                              @media (min-width: 1088px){
+                              .text{
+                                font-size:24px;
+                              }
+
+                              .livro{
+                                width: 180vh;
+                              }
+                              hr{
+                                width: 98%;
+                              }
+
+                              .corpo{
+                                font-size: 20px;
+                              }
+
+                              .rodape-comentario{
+                                font-size: 18px;
+                              }
+
+                              .coment{
+                                font-size: 16px;
+                                width: 50%;
+                              }
+
+                            }
   </style>
