@@ -19,6 +19,7 @@ export default {
 <style>
 body {
   margin: 0;
+
 }
 
 #app {
@@ -30,7 +31,7 @@ body {
 
 main {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 

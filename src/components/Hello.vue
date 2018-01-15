@@ -1,11 +1,53 @@
   <template>
     <div class="hello">
-      <div id="menu">
-        <h1>Fakenews</h1>
+      <div class="menu">
+        
+        <div class="icones">
+          <div class="logo"><img src="../assets/logo.svg"></div>
+          <div class="procura"><img src="../assets/menu.svg"></div>
+          <div class="lupa"><img src="../assets/lupa.svg"></div>
+        </div>
       </div>
-        <h2>De tanto ganhar meias de Natal, tio-avô ganha livro e tenta calçá-lo</h2>
-        <img src="../assets/livros.jpg">
-        <p>Foi uma cena estranha no Natal antecipado da família Siqueira, na zona norte do Rio de Janeiro. Bem mais estranha do que a Tia Julinha perguntando à sobrina Cássia pela 76a vez quando ela ia se casar. Ou o cunhado Valcir tentando entoar Então é Natal, da Simone. Eram quase onze da noite quando o tio-avô Onofre, de 77 anos, ganhou seu presente. Abriu e era um um livro, a biografia de Jô Soares, que sua irmã Olga comprara com ótimo preço na Saraiva. Onofre olhou, olhou e olhou o livro por muitos minutos. Os parentes imaginaram que ele estava emocionado. De repente Onofre se sentou, tirou seu sapato e colocou o livro perto do pé. A família demorou a entender: ele estava tentando calçar o livro. Resultado das meias que ganhou nos últimos 17 anos.</p>
+        <h2 class="text">De tanto ganhar meias de Natal, <br>tio-avô ganha livro e tenta calçá-lo</br></h2>
+        <img src="../assets/livros.jpg" class="livro">
+        <p class="corpo">Foi uma cena estranha no Natal antecipado da família Siqueira, na zona norte do Rio de Janeiro. Bem mais estranha do que a Tia Julinha perguntando à sobrinha Cássia pela 76º vez quando ela ia se casar. Ou o cunhado Valcir tentando entoar Então é Natal, da Simone. Eram quase onze da noite quando o tio-avô Onofre, de 77 anos, ganhou seu presente. Abriu e era um um livro, a biografia de Jô Soares, que sua irmã Olga comprara com ótimo preço na Saraiva. Onofre olhou, olhou e olhou o livro por muitos minutos. Os parentes imaginaram que ele estava emocionado. De repente Onofre se sentou, tirou seu sapato e colocou o livro perto do pé. A família demorou a entender: ele estava tentando calçar o livro. Resultado das meias que ganhou nos últimos 17 anos.</p>
+      <div class="rodape">
+        <h3 class="rodape-comentario">Comentários</h3>
+          <hr align="center">
+          <div v-for="dialogo in usuario.dialogo">
+            <p>{{dialogo}}</p>
+          </div>
+          <label>
+          <span>Digite um comentario:</span>
+          </label>
+
+        <ul>
+          <li>
+            <img src="../assets/profile.svg"></li>
+            <input class="caixa" v-on:model="dialogo" v-on:keyup.enter="adcdialogo">
+            <button v-on:click>{{Envio}}</button>
+          <li>
+            <img src="../assets/profile2.svg">
+                <h4 class="coment">
+                  <p class="nomes">
+                    Camila RJ
+                  </p>
+                  "Eu teria feito o mesmo sinceramente. Papai Noel nunca me deu oq eu pedi"
+                </h4>
+          </li>
+          <li>
+            <img src="../assets/profile3.svg">
+              <h4 class="coment">
+                <p class="nomes">
+                  Joaquim Campinas
+                </p>
+                 "kkkkkkkkkkkkkkkkkkkk rindo até 2049. Muito engraçado!!!!!"
+              </h4>
+
+          </li>
+        </ul>
+      
+      </div>
 
     </div>
 
@@ -16,58 +58,136 @@
     name: 'hello',
     data () {
       return {
-        msg: 'Welcome to Your Vue.js PWA'
+        Envio: 'Enviar',
+        usuario:'',
+        user:{
+          dialogo:[''],
+        
+        }  
+      }
+        
+    },
+    methodos:{
+      adcdialogo(usuario){
+        return this.user.dialogo.push(this.usuario),
+                this.usuario=''
       }
     }
+      
   }
+
   </script>
 
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style>
 
-  menu{ 
-    margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
-
-  }
-  h1{
-    margin: 0;
-    padding: 0.25em 0;
-    font-size: 1.85em;
-    color:blue;
+  body{
   }
 
-  h2{ 
-      font-family: 'Open Sans, Bold';
-      font-size: 18px; 
-      text-align: center;
-      margin-left: 40px;
-      margin-right: 50px;}
+  div.menu{ 
+            height: 56px;
+            padding: 0 16px 0 24px;
+            background-color: #000000;
 
-  img{
-    width: 100%;  
   }
 
-  p{
-    font-family: 'Open Sans, Regular';
-    font-size: 14px;
+  
+  .logo{
+        width: 126px;
+        height: 33px;
+        margin: auto;
+        padding: 10px 0 0 10px;
+        
   }
-  ul {
-    list-style-type: none;
-    padding: 0;
+  .procura{ 
+          width: 32.09px;
+          height: 19.4px;
+          margin-right: 20px;
+          margin-top: -23px;
+
+
   }
 
-  li {
-    display: inline-block;
-    margin: 0 10px;
+  .lupa{  
+          width: 23.8px;
+          height: 23.77px;
+          margin-left: 90%;
+          margin-top: -20px;
+          
+
+  }
+  
+  .text{ 
+        font-family: 'Open Sans, Bold';
+        font-size: 18px; 
+        text-align: center;}
+
+  .livro{
+          width: 90%;  
   }
 
-  a {
-    color: #35495E;
+  .corpo{
+        font-family: 'Open Sans, Regular';
+        font-size: 14px;
+        margin: 15px;
+        text-align: justify;
+
   }
+ 
+
+  .rodape-comentario{
+                    font-family: 'Open Sans, Bold';
+                    text-align:left;
+                    font-size: 1em;
+                    margin-left: 14px;
+                    height: 5px;
+  }
+
+  hr{ 
+      size: 1px;
+      width: 93%;
+
+
+  }
+
+  ul{
+    list-style: none;
+    width: 90%;
+    height: 250px;
+    padding-left: 13px;
+    margin:2px 10px;
+  }
+
+  li{
+    display: flex;
+    width: 116%;
+    height: 64px;
+    margin-left: -55px;
+    padding-bottom: 30px;
+  }
+
+  .coment{ 
+          font-family: 'Open Sans, Bold';
+          font-size:0.80em;
+          width: 180px;
+          text-align: left;
+          color: #979797;
+          margin: 2px;
+       }
+
+  .caixa{
+    width: 50%;
+    height: 20px;
+    
+  }
+
+  .nomes{
+          font-weight: bold;
+          color: #000000;
+          margin: 3px;
+}
+
+  
 
 
   </style>
